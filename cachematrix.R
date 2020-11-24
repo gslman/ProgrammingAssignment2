@@ -1,15 +1,22 @@
-## Put comments here that give an overall description of what your
-## functions do
+## Return  matrix that is the inverse of 'x'
+    m <- x$getInverse()
 
-## Write a short comment describing this function
+    ## Just return  inverse if its already set
+    if( !is.null(m) ) {
+            message("getting cached data")
+            return(m)
+    }
 
-makeCacheMatrix <- function(x = matrix()) {
+    ## Get the matrix from our object
+    data <- x$get()
 
-}
+    ## Calculate inverse through matrix multiplication
+    
+    m <- solve(data) %*% data
 
+    ## Set the inverse to the object
+    
+    x$setInverse(m)
 
-## Write a short comment describing this function
-
-cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
-}
+    ## Return matrix
+    m
